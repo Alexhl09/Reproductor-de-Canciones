@@ -11,7 +11,199 @@ import AVFoundation
 
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    func SSRandomIntBetween(_ a: Int32, _ b: Int32) -> Int32
+    {
+       var d = Int32()
+        d = Int32(arc4random_uniform(4))
+        return d
+    }
+    @IBAction func aleatorio() {
+        let random = SSRandomIntBetween(0, 4)
+        print(random)
+        switch random {
+        case 0:
+            nombreCancion.text = "Million Reasons"
+            nombreArtista.text = "Lady Gaga"
+            fotoCancion.image = UIImage(named: "joanne")
+            guard let sonidoURLMR  = Bundle.main.url(forResource: "Million reasons", withExtension: "mp3") else { return }
+            do{
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    reproductorMillionReasons = try AVAudioPlayer(contentsOf: sonidoURLMR, fileTypeHint: AVFileType.mp3.rawValue)
+                    if(reproductorMillionReasons != nil)
+                    {
+                        reproductorMillionReasons.stop()
+                    }
+                    if(reproductorPerfectPlaces != nil)
+                    {
+                        reproductorPerfectPlaces.stop()
+                    }
+                    if(reproductorEndGame != nil)
+                    {
+                        reproductorEndGame.stop()
+                    }
+                    if(reproductorHomeDynamite != nil)
+                    {
+                        reproductorHomeDynamite.stop()
+                    }
+                    if(reproductorCallItWhatYouWant != nil)
+                    {
+                        reproductorCallItWhatYouWant.stop()
+                    }
+                    reproductorMillionReasons.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        case 1:
+            nombreCancion.text = "Call it what you want"
+            nombreArtista.text = "Taylor Swift"
+            fotoCancion.image = UIImage(named: "reputation")
+            guard let sonidoURLCIWYW = Bundle.main.url(forResource: "Call it what you want", withExtension: "mp3") else { return }
+            do{
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    reproductorCallItWhatYouWant = try AVAudioPlayer(contentsOf: sonidoURLCIWYW, fileTypeHint: AVFileType.mp3.rawValue)
+                    if(reproductorMillionReasons != nil)
+                    {
+                        reproductorMillionReasons.stop()
+                    }
+                    if(reproductorPerfectPlaces != nil)
+                    {
+                        reproductorPerfectPlaces.stop()
+                    }
+                    if(reproductorEndGame != nil)
+                    {
+                        reproductorEndGame.stop()
+                    }
+                    if(reproductorHomeDynamite != nil)
+                    {
+                        reproductorHomeDynamite.stop()
+                    }
+                    if(reproductorCallItWhatYouWant != nil)
+                    {
+                        reproductorCallItWhatYouWant.stop()
+                    }
+                    reproductorCallItWhatYouWant.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        case 2:
+            nombreCancion.text = "End Game"
+            nombreArtista.text = "Taylor Swift"
+            fotoCancion.image = UIImage(named: "reputation")
+            guard let sonidoURLEG  = Bundle.main.url(forResource: "End Game", withExtension: "mp3") else { return }
+            do{
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                   reproductorEndGame = try AVAudioPlayer(contentsOf: sonidoURLEG, fileTypeHint: AVFileType.mp3.rawValue)
+                    if(reproductorMillionReasons != nil)
+                    {
+                        reproductorMillionReasons.stop()
+                    }
+                    if(reproductorPerfectPlaces != nil)
+                    {
+                        reproductorPerfectPlaces.stop()
+                    }
+                    if(reproductorEndGame != nil)
+                    {
+                        reproductorEndGame.stop()
+                    }
+                    if(reproductorHomeDynamite != nil)
+                    {
+                        reproductorHomeDynamite.stop()
+                    }
+                    if(reproductorCallItWhatYouWant != nil)
+                    {
+                        reproductorCallItWhatYouWant.stop()
+                    }
+                    reproductorEndGame.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        case 3:
+            nombreCancion.text = "Perfect Places"
+            nombreArtista.text = "Lorde"
+            fotoCancion.image = UIImage(named: "melodrama")
+            guard let sonidoURLPP  = Bundle.main.url(forResource: "Perferct places", withExtension: "mp3") else { return }
+            do{
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    reproductorPerfectPlaces = try AVAudioPlayer(contentsOf: sonidoURLPP, fileTypeHint: AVFileType.mp3.rawValue)
+                    if(reproductorMillionReasons != nil)
+                    {
+                        reproductorMillionReasons.stop()
+                    }
+                    if(reproductorPerfectPlaces != nil)
+                    {
+                        reproductorPerfectPlaces.stop()
+                    }
+                    if(reproductorEndGame != nil)
+                    {
+                        reproductorEndGame.stop()
+                    }
+                    if(reproductorHomeDynamite != nil)
+                    {
+                        reproductorHomeDynamite.stop()
+                    }
+                    if(reproductorCallItWhatYouWant != nil)
+                    {
+                        reproductorCallItWhatYouWant.stop()
+                    }
+                    
+                    reproductorPerfectPlaces.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        case 4:
+            nombreCancion.text = "Homemade Dynamite"
+            nombreArtista.text = "Lorde"
+            fotoCancion.image = UIImage(named: "melodrama")
+            guard let sonidoURLHD  = Bundle.main.url(forResource: "Homemade dynamite", withExtension: "mp3") else { return }
+            do{
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                    reproductorHomeDynamite = try AVAudioPlayer(contentsOf: sonidoURLHD, fileTypeHint: AVFileType.mp3.rawValue)
+                    if(reproductorMillionReasons != nil)
+                    {
+                        reproductorMillionReasons.stop()
+                    }
+                    if(reproductorPerfectPlaces != nil)
+                    {
+                        reproductorPerfectPlaces.stop()
+                    }
+                    if(reproductorEndGame != nil)
+                    {
+                        reproductorEndGame.stop()
+                    }
+                    if(reproductorHomeDynamite != nil)
+                    {
+                        reproductorHomeDynamite.stop()
+                    }
+                    if(reproductorCallItWhatYouWant != nil)
+                    {
+                        reproductorCallItWhatYouWant.stop()
+                    }
+                    reproductorHomeDynamite.play()
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            
+        default:
+            print("error")
+        }
+       
+    }
     
     @IBAction func volume(_ sender: UISlider) {
         if(nombreCancion.text == "Call it what you want")
